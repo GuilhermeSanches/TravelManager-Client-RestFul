@@ -15,6 +15,12 @@ App.factory('Viagens', function($http, API){
         createLancamento: function(idViagem, newLancamento){
 			return $http.post(API+'/viagem/'+idViagem+'/lancamentos', newLancamento);
 		},
+		profileLancamento: function(idViagem, id){
+			return $http.get(API+'/viagem/'+idViagem+'/lancamento/'+id);	
+		},	
+		updateLancamento: function(item, id,idLancamento){
+			return $http.put(API+'/viagem/'+id+'/lancamento/'+idLancamento, item);	
+		},
 		create: function(item){
 			return $http.post(API+'/viagens', item);
 		},

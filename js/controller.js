@@ -6,6 +6,41 @@ App.controller('MenuCtrl', function($scope, $route, $location){
     
 });
 
+
+App.controller('EditLancamentoCtrl', function($scope, $routeParams, Viagens,Categorias, $route, $location){
+    var id = $routeParams.id;    
+    var idViagem = $routeParams.idViagem;  
+    $scope.itemLanc = [];
+    
+    $scope.categorias = [];
+
+    Categorias.read().then(function(result){
+          $scope.categorias=result.data;
+        
+        });
+        
+    $('#modalEditLancamento').modal('show');    
+
+        $('#modalEditLancamento').on('hide.bs.modal', function(){    
+                  $(window.document.location).attr('href',"#/");          
+        });
+    	
+        Viagens.profileLancamento(idViagem, id).then(function(data){
+		$scope.itemLanc = data.data;
+//        $route.reload();
+        
+	});
+    
+        $scope.atualizarLancamento = function(item){
+            Viagens.updateLancamento(item, item.id_viagem, item.id).then(function(data){
+                  $('#modalEditLancamento').modal('hide');
+                    alert("Lançamento Editado com sucesso");
+                    $(window.document.location).attr('href','#/lancamentos/'+item.id_viagem);         
+            });
+	}
+    
+});
+
 App.controller('LancamentoCtrl', function($scope,$rootScope,Viagens,Categorias, $window, $routeParams, $route, $location){
     var id = $routeParams.id;
     var idViagem = $routeParams.idViagem;
@@ -15,7 +50,8 @@ App.controller('LancamentoCtrl', function($scope,$rootScope,Viagens,Categorias, 
           $scope.categorias=result.data;
         
         });
-    
+        
+ 
         $('#mLancamento').modal('show');    
 
         $('#mLancamento').on('hide.bs.modal', function(){    

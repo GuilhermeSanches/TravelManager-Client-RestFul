@@ -53,6 +53,11 @@ App.config(function($routeProvider, $httpProvider){
         access: { requiredAuthentication: true }
     }) 
     
+    .when('/viagem/:idViagem/lancamento/edit/:id', {
+        templateUrl: 'views/modais/mEditLancamento.html',
+        controller: 'EditLancamentoCtrl',
+        access: { requiredAuthentication: true }
+    }) 
     
     .when('/signup', {
         templateUrl: 'signup.html',

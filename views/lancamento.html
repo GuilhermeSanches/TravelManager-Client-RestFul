@@ -18,7 +18,7 @@
         </thead>
 	<tbody>
             <tr ng-repeat="item in lancamentos">
-                <td><a href="#/edit/{{item.id_viagem}}" class="btn btn-info btn-block">Editar</a></td>                
+                <td><a href="#/viagem/{{item.id_viagem}}/lancamento/edit/{{item.id}}" class="btn btn-info btn-block">Editar</a></td>                
                 <td>{{item.descricao}}</td>
                 <td>{{item.nome}}</td>
                 <td>{{item.data}}</td>
