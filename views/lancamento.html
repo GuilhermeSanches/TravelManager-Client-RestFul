@@ -1,0 +1,34 @@
+<div ng-include="'views/index-top.html'" ng-controller="ReadCtrl"></div>
+
+<div class="col-xs-12" >
+
+<div id="header"></div>
+<div class="row"><h3>Lançamentos</h3></div>
+
+<table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <td></td>               
+                <td>Descricao</td>
+                <td>Categoria</td>
+                <td>Data</td>
+                <td>Valor</td>           
+                <td></td>                                     
+            </tr>
+        </thead>
+	<tbody>
+            <tr ng-repeat="item in lancamentos">
+                <td><a href="#/edit/{{item.id_viagem}}" class="btn btn-info btn-block">Editar</a></td>                
+                <td>{{item.descricao}}</td>
+                <td>{{item.nome}}</td>
+                <td>{{item.data}}</td>
+                <td>{{item.valor}}</td>                
+                <td><button ng-click="deletar(item.id)" class="btn btn-danger btn-block">Deletar</button></td>
+            </tr>
+		    <tr ng-show="notFound" class="text-center">
+			    <td colspan="6">Não tem Lançamentos</td>
+		    </tr>
+	    </tbody>
+    </table>	
+
+</div>

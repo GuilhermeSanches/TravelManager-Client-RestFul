@@ -1,0 +1,24 @@
+   <div ng-include="'views/menu-top.html'" ng-controller="ReadCtrl"></div>
+    <div id="maps">    
+        <div id="google"></div>
+    </div>    
+   <div id="menu-lateral" class="col-xs-6 col-md-2">
+    <ul class="nav nav-pills nav-stacked">
+          <li role="presentation" class="active"><a href="#/">Viagens</a></li>
+          <li role="presentation"><a href="#/create">Relatórios</a></li>
+          <li role="presentation"><a href="#/create">Categorias</a></li> 
+    </ul>    
+</div>
+        <a id="tops"   ><img id="img"  src="../img/seta_cima.png" alt="closeMap"></a>
+        <a id="openMap"><img id="img2" src="../img/seta.jpg"      alt="openMap"></a>
+        <a ng-show="getUrl()" href="#/viagem/add" ><div id="cadastrarViagem"  data-target="#exampleModal" data-whatever="@mdo"></div></a>
+
+        <a ng-hide="getUrl()" ng-click="newLancamento()" ><div id="cadastrarViagem"  data-target="#mLancamento" data-whatever="@mdo"></div></a>
+    
+    <div class="container" >
+        <div class="row">
+            <div class="col-ms-12 nopadding">            
+                <div></div>
+            </div>
+        </div>
+    </div>

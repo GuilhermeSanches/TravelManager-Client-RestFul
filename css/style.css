@@ -1,0 +1,113 @@
+
+#google{    
+    width: 50%;
+    height: 280px;   
+    margin: -20px auto;
+    border-radius: 20px;
+    border-top-right-radius: 20px;
+    
+}
+
+#menu-navbar{    
+    background-color: #337AB7;    
+    border: 0px;
+    color: white;
+}
+#navbar-header{
+    color: white;
+    }
+#menu-lateral{
+    margin-top: -180px;
+}
+.saldoDevedor{
+    color: red;
+}
+#cadastrarViagem{    
+    position: relative;
+    border: 1px solid white ;
+    width: 56px;        
+    height: 49px;
+    margin-top: 10px;
+    cursor: pointer;
+    text-align: center;
+    float: right;
+    margin-right: 50px;    
+    padding: 0px;    
+    background-image: url(../img/addViagem.png);
+    background-size: 56px 49px;
+    background-repeat: no-repeat;
+        
+}
+
+.saldoOk{
+    color: green;
+}
+.dropdown-menu li a{
+    cursor: pointer;
+}
+#openMap{
+    display: none;
+    position: absolute;    
+    margin-left: 40px;
+    margin-top: 15px;
+    cursor: pointer; 
+    height: 90px;
+    z-index: 1002;
+    
+}
+
+#img2{
+        position: absolute;        
+        width: 50px;
+        height: 50px;
+        cursor: pointer;   
+}
+
+#img{
+        position: absolute; 
+        margin-top: 20px;
+        margin-left: 30px;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;    
+    
+}
+
+
+
+#closemaps{
+        position: absolute;  
+        width: 50px;
+        height: 50px;
+        cursor: pointer;  
+       
+
+}
+
+#maps{
+    width: 100%;
+    height: 200px;
+/*    background: #E9F2D8;*/
+    margin: 0px;
+    padding: 0px;
+}
+
+
+#header{;
+    
+    width: 100%;
+    height: 100%;    
+    background: #216ED1;
+
+}
+.nopadding {
+    
+   padding: 0 !important;
+   margin: 0 !important;
+}
+
+.row{
+    
+    padding-top: 10px;
+    
+}

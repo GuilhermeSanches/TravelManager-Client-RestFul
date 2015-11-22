@@ -1,0 +1,47 @@
+<div ng-include="'views/index-top.html'" ng-controller="ReadCtrl"></div>
+
+          
+<div id="table" class="col-xs-12 col-md-12">
+<div id="header"></div>
+<div class="row"></div>
+<div class="row">
+<!--
+<a type="button"  href="#/message/1" class="btn btn-primary"  data-target="#myModal">Login Invalido teste</a>
+<a type="button" href="#/message/2" class="btn btn-primary"   data-target="#myModal">Erro 2</a>
+-->
+</div>    
+<div class="row">
+<table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Cidade</td>
+                <td>Data Início</td>
+                <td>Data Término</td>
+                <td>Valor Previsto</td>
+                <td>Valor Gasto</td>
+                <td>Finalizada</td>
+                <td></td>
+            </tr>
+        </thead>
+	<tbody>
+            <tr ng-repeat="item in viagens">
+                <td><a href="#/edit/{{item.id_viagem}}" class="btn btn-info btn-block">Editar</a></td>
+                <td><a href="#/lancamentos/{{item.id_viagem}}" class="btn btn-success">Lançamentos</a></td>
+                <td>{{item.titulo}}</td>
+                <td>{{item.dataInicio}}</td>
+                <td>{{item.dataTermino}}</td>
+                <td>{{item.vPrevisto}}</td>
+                <td class="{{getSaldo(item)}}">{{item.vGasto}}</td>
+                <td><i class="{{itemIcon(item)}}"></i></td>
+            <td><button ng-click="deletar(item.id_viagem)" class="btn btn-danger btn-block">Deletar</button></td>
+            </tr>
+		    <tr ng-show="notFound" class="text-center">
+			    <td colspan="8">Não tem Viagens</td>
+		    </tr>
+	    </tbody>
+    </table>	
+</div>
+
+</div>

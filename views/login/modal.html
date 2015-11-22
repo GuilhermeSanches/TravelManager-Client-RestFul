@@ -1,0 +1,27 @@
+<div class="container">
+	<div class="login-container">
+            <div id="output"></div>
+            <div class="avatar"></div>
+            <div class="form-box">
+    <form class="form-horizontal" role="form">
+        <div>      
+          <div>
+            <input type="text" class="form-control" id="inputUsername" placeholder="Username" ng-model="login.email">
+        </div>
+       </div>
+      <div>      
+        <div>
+            <input type="password" class="form-control" id="inputPassword" placeholder="Password" ng-model="login.password">
+        </div>
+       </div>
+        <div>
+          <div>
+            <button type="submit" 
+                 class="btn btn-info btn-block login" 
+                 ng-click="logIn(login.email,login.password)">LogIn</button>                   
+                </div>
+            </div>
+          </form>                
+        </div>
+    </div>        
+</div>
