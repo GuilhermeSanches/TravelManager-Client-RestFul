@@ -36,10 +36,18 @@ App.factory('Viagens', function($http, API){
 	}
 });
 
-App.factory('Login', function($http, API){	
+App.factory('Relatorios', function($http, API){	
 	return {
-		read: function(){
-			return $http.get(API+'/auth/facebook');
+		read: function(id){
+			return $http.get(API+'/relatorios/'+id);
+		}		
+	}
+});
+
+App.factory('SignUp', function($http, API){	
+	return {
+		create: function(data){
+			return $http.post(API+'/signup', data);
 		}		
 	}
 });

@@ -32,8 +32,8 @@
                 <td>{{item.titulo}}</td>
                 <td>{{item.dataInicio}}</td>
                 <td>{{item.dataTermino}}</td>
-                <td>{{item.vPrevisto}}</td>
-                <td class="{{getSaldo(item)}}">{{item.vGasto}}</td>
+                <td>{{item.vPrevisto | currency}}</td>
+                <td class="{{getSaldo(item)}}">{{item.vGasto | currency}}</td>
                 <td><i class="{{itemIcon(item)}}"></i></td>
             <td><button ng-click="deletar(item.id_viagem)" class="btn btn-danger btn-block">Deletar</button></td>
             </tr>

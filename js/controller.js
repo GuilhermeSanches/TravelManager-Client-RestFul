@@ -7,6 +7,54 @@ App.controller('MenuCtrl', function($scope, $route, $location){
 });
 
 
+App.controller('relCtrl', function($scope,Relatorios,Viagens, $route, $location){
+  
+    $scope.dados = [];        
+    $scope.viagens = [];
+    
+    Viagens.read().then(function(data){    
+        $scope.viagens = data.data;
+    });
+    
+    
+    $scope.getRelatorio = function(idViagem){
+        
+        Relatorios.read(idViagem).then(function(result){
+            console.log(result);
+            $scope.dados = result.data;
+            $scope.drawChart();
+    });
+    };
+    
+    
+    
+    
+      $scope.drawChart = function() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Valores por Viagem'],
+          ['Alimentação',     $scope.dados[0].valor],
+          ['Hospedagem',      $scope.dados[1].valor],
+          ['Lazer', $scope.dados[2].valor],
+          ['Outros',    $scope.dados[3].valor],
+          ['Saúde', $scope.dados[4].valor],
+          ['Transporte', $scope.dados[5].valor],
+          ['Vestuário', $scope.dados[6].valor]
+        ]);
+
+        var options = {
+          title: 'Meu Historico de  Lançamentos'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+            
+        chart.draw(data, options);
+      }
+    
+    
+});
+
+
 App.controller('EditLancamentoCtrl', function($scope, $routeParams, Viagens,Categorias, $route, $location){
     var id = $routeParams.id;    
     var idViagem = $routeParams.idViagem;  
@@ -314,20 +362,18 @@ App.controller('EditTravelCtrl', function($scope, Viagem, $route, $routeParams, 
 });	
 
 
-App.controller('controllerSignUp', function($scope, Login, Viagem, $route, $routeParams, $location){
-	$scope.loginFb = function(){
+App.controller('controllerSignUp', function($scope,SignUp, $route, $routeParams, $location){
 
-        Login.read().then(function(data){
-		$scope.dados = data.data;
-       
-		if(data.data.length == 0){
-			$scope.notFound = true;
-		}
-	},function(data){
-		console.log("data", data);
-	});
     
+    $scope.gravarUser = function(user){
+        SignUp.create(user).success(function(result){            
+            alert("usuário cadastrado com sucesso!");
+            $location.path('/login');
+        }).error(function(err){
+            alert(err.data);
+        });
     };
+    
 });	
 
 

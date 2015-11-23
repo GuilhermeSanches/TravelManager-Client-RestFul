@@ -45,7 +45,11 @@ App.config(function($routeProvider, $httpProvider){
         access: { requiredAuthentication: true }
     }) 
     
-
+    .when('/relatorios', {
+        templateUrl: 'views/relatorios.html',
+        controller: 'relCtrl',
+        access: { requiredAuthentication: true}
+    })
     
     .when('/edit/:id', {
         templateUrl: 'views/modais/mEditViagem.html',
@@ -99,6 +103,7 @@ App.run(function($rootScope, $location, $route, AuthenticationService, $window) 
         }
     });
 });
+
 
 
 //App.value('API', 'http://localhost:8080');
