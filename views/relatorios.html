@@ -1,12 +1,20 @@
-<div>
-<div class="label label-success">Relatórios Gastos por Categoria</div>
-<div>
-Selecione a Viagem abaixo:
-<select name="categoria" ng-model="viagem" ng-change="getRelatorio(viagem)" ng-options="opt.id_viagem as opt.titulo for opt in viagens track by opt.id_viagem" required></select>
+<div ng-include="'views/index-top.html'" ng-controller="ReadCtrl"></div>
+<div class="content-relatorios">
+<div id="labelTitulo" >Relatório de Gastos por Categoria</div>
+<div class="divSelect">
+<span id="spanRel">Selecione a Viagem ao lado:</span>
+<select name="categoria" class="selectRel" ng-model="viagem"  ng-change="getRelatorio(viagem)" ng-options="opt.id_viagem as opt.titulo for opt in viagens track by opt.id_viagem" required></select>
      </div>  
 </div>
 
-
-
-
 <div id="piechart" style="width: 900px; height: 500px;"></div>
+
+
+<div class="content-relatorios2">
+<div id="labelTitulo" >Relatório de Gastos em Viagens</div>
+<div class="divSelect">
+<span id="spanRel">Abaixo esta listando o total de gastos em Viagens desde seu primeiro cadastro em nosso sistema</span>
+     </div>  
+</div>
+
+<div id="piechart2" style="width: 900px; height: 500px;"></div>

@@ -40,7 +40,10 @@ App.factory('Relatorios', function($http, API){
 	return {
 		read: function(id){
 			return $http.get(API+'/relatorios/'+id);
-		}		
+		},
+    	readRelTot: function(token){
+			return $http.get(API+'/relatorios/total/'+token);
+		}	
 	}
 });
 

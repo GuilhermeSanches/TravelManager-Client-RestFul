@@ -7,6 +7,45 @@
     border-color: green;
     outline-color: green;
 }
+.selectRel{
+    width: 200px;
+}
+.divSelect{
+    margin: 5px auto;    
+    width: 50%;    
+}
+
+#spanRel{
+    color: white;
+}
+
+#piechart, #piechart2{
+    width: 50%;
+    margin: 0px auto;
+}
+#labelTitulo{
+    cursor: pointer;
+    margin: 10px auto;
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    text-align: center;    
+    width: 50%;
+    padding: 10px;
+}
+.content-relatorios{
+    border: 0px solid black;
+    padding: 25px;
+    margin-top: 25px;
+    background-color: #337AB7;
+}
+.content-relatorios2{
+    border: 0px solid black;
+    padding: 25px;
+    margin-top: 25px;
+    background-color: green;
+}
+
 
 .messages {
   font-size: smaller;

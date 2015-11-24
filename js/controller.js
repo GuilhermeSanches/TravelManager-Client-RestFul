@@ -9,20 +9,35 @@ App.controller('MenuCtrl', function($scope, $route, $location){
 
 App.controller('relCtrl', function($scope,Relatorios,Viagens, $route, $location){
   
-    $scope.dados = [];        
+    $scope.dados = []; 
+    $scope.dadosTot = [];
+    
     $scope.viagens = [];
     
     Viagens.read().then(function(data){    
         $scope.viagens = data.data;
+        $scope.viagem = $scope.viagens[0];
+        
+        $scope.getRelatorio($scope.viagem.id_viagem);
+        $scope.getRelatorioTotal($scope.viagem.token);
     });
     
     
     $scope.getRelatorio = function(idViagem){
-        
+        console.log(idViagem);
         Relatorios.read(idViagem).then(function(result){
             console.log(result);
             $scope.dados = result.data;
             $scope.drawChart();
+    });
+    };
+    
+    $scope.getRelatorioTotal = function(token){
+        
+        Relatorios.readRelTot(token).then(function(result){
+            console.log(result);
+            $scope.dadosTot = result.data;
+            $scope.drawChartTot();
     });
     };
     
@@ -51,6 +66,28 @@ App.controller('relCtrl', function($scope,Relatorios,Viagens, $route, $location)
         chart.draw(data, options);
       }
     
+
+      
+      
+    $scope.drawChartTot = function() {
+     
+                                        
+        $scope.data2 = new  google.visualization.DataTable();
+        $scope.data2.addColumn('string', 'Task');
+        $scope.data2.addColumn('number', 'valores totais por viagens');                
+        
+        for(var i = 0 ; i< $scope.dadosTot.length; i++){
+            $scope.data2.addRows([[$scope.dadosTot[i].titulo, $scope.dadosTot[i].valor]]);
+        }
+                        
+        var options = {
+          title: 'Meu Historico de Viagens'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+            
+        chart.draw( $scope.data2, options);
+      }
     
 });
 
@@ -159,6 +196,21 @@ App.controller('MessagesCtrl', function($scope, Messages, $route, $location, $ro
 
 App.controller('ReadCtrl', function($scope,$location,$route, Viagens, $route){
 	$scope.viagens = [];
+    
+    
+    
+        $scope.getRouteViagem = function(){
+            if($route.current.loadedTemplateUrl==='views/read.html')
+                return "active";
+            else return "";
+        };
+    
+        $scope.getRouteRelatorio = function(){
+            if($route.current.loadedTemplateUrl==='views/relatorios.html')
+                return "active";
+            else return "";
+        };
+    
     
         $('#exampleModal').modal('show');    
 
